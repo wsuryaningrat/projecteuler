@@ -1,5 +1,77 @@
 #!/usr/bin/env python
 # coding: utf-8
+ 
+    
+# ## problem 6
+# Sum square difference
+# 
+# f1: The sum of the squares
+# f2: The square of the sum
+# 
+# find f2-f1 of first 100
+ 
+
+def f1(n):
+    return sum([x**2 for x in range(1,n+1)])
+def f2(n):
+    return (sum([x for x in range(1,n+1)]))**2
+
+
+# In[12]:
+
+
+f2(100)-f1(100)
+
+
+# In[ ]:
+
+
+def f1(n):
+    return 
+
+
+# ## problem 7
+# 10001st prime
+# 
+# 
+
+# In[2]:
+
+
+def is_prime(n: int) -> bool:
+    """Primality test using 6k+-1 optimization."""
+    if n <= 3:
+        return n > 1
+    if not n%2 or not n%3:
+        return False
+    i = 5
+    stop = int(n**0.5)
+    while i <= stop:
+        if not n%i or not n%(i + 2):
+            return False
+        i += 6
+    return True
+
+
+# In[8]:
+
+
+num=1
+prm=0
+while True:
+    if is_prime(num):
+        prm+=1
+        if prm==10001:
+            break
+    num+=1
+print(prm,num)
+
+
+# In[6]:
+
+
+prm
+
 
 # ## problem 8
 # Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
@@ -97,7 +169,7 @@ for a in range(1,1000):
 200*375*425
 
 
-# ## prob 10
+# ## problem 10
 # The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 # 
 # Find the sum of all the primes below two million.
@@ -136,5 +208,3 @@ N = 2*10**6
 
 
 sum([numb for numb in range(1,N+1) if is_prime(numb)])
-
-
